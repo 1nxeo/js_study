@@ -1,0 +1,71 @@
+// 콜라츠 추측
+// https://school.programmers.co.kr/learn/courses/30/lessons/12943
+
+function solution(num) {
+    let answer = 0;
+    let n = 0;
+    do{
+        if(num == 1){ // 1이 주어질 때
+            n = 0
+        }
+        if (num !== 1 && num%2 == 1){ //1을 제외한 홀수
+            num=num*3+1
+            n++
+        }
+        if(num%2 == 0){ //짝수
+            num = num/2
+            n++
+        }
+        if(num == 1) break; //숫자가 1이 되면 break
+    }while (n<=500);
+    answer = n
+    //500번 반복할 때까지 1이 되지 않을때 return 1
+    if (n >= 500 && num !== 1 ){
+        answer = -1
+    }
+    return answer;
+}
+
+//하샤드 수
+function solution(x) {
+    let answer = true;
+    // x%자릿수의합 == 0
+    let sum = 0;
+    let list = String(x).split('')
+    
+    for(i=0;i<list.length;i++){
+        sum += Number(list[i]) 
+    }
+    
+    if(x%sum !== 0){
+        answer = false
+    }
+    
+    return answer;
+}
+
+//완주하지 못한 선수
+function solution(participant, completion) {
+    let answer = '';
+    
+    //일단 오름차순 정렬
+    // participant.sort()
+    // completion.sort()
+    //index값이 같아짐
+    // answer = participant[participant.length-1]
+    // ==> 동명이인이 있는걸 못봣네
+    
+    function solution(participant, completion) {
+        let answer = '';
+        
+        //이름으로 인덱스 찾아서, 인덱스로 삭제
+        
+        for(k=0;k<completion.length;k++){
+                let finIndex = participant.indexOf(completion[k])
+                let fail = participant.splice(finIndex,1)
+                answer = String(participant)
+            }
+        
+        return answer;
+    }
+}
