@@ -44,10 +44,7 @@ function solution(x) {
     return answer;
 }
 
-//완주하지 못한 선수
-function solution(participant, completion) {
-    let answer = '';
-    
+//완주하지 못한 선수   
     //일단 오름차순 정렬
     // participant.sort()
     // completion.sort()
@@ -58,11 +55,15 @@ function solution(participant, completion) {
     function solution(participant, completion) {
         let answer = '';
         
-        //이름으로 인덱스 찾아서, 인덱스로 삭제
+        //완주자 이름으로 참가자 인덱스 찾아서, 참가자 인덱스로 삭제
+        //인덱스가 여러개 뜨면 ? 맨앞 인덱스부터 찾느다
         
-        for(k=0;k<completion.length;k++){
-                let finIndex = participant.indexOf(completion[k])
-                let fail = participant.splice(finIndex,1)
+        
+        for(i=0;i<completion.length;i++){
+                let cIndex = participant.indexOf(completion[i])
+                if (cIndex !== -1){
+                    let fail = participant.splice(cIndex,1)
+                }
                 answer = String(participant)
             }
         
