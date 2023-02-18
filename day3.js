@@ -1,6 +1,6 @@
 function solution(a, b) {
     let answer = '';
-    let date = [ a, b ];
+    // let date = [ a, b ];
     let dateList = [];
     //날짜[월,일]을 쭉 쓴 리스트 뽑아서 index가 7의배수면 FRI;인덱스%7=1이면 SAT ...
     for (i=1;i<=12;i++){
@@ -20,7 +20,7 @@ function solution(a, b) {
     }
     
     for (i=0;i<dateList;i++){
-        if(dateList.indexOf([a,b] = i)){
+        if(dateList.indexOf([a,b])=i){
             if (i%7 == 0){
             answer = 'FRI'
         }else if(i%7 == 1){
@@ -39,7 +39,8 @@ function solution(a, b) {
         }
         
     }      
-    
         
     return answer;
 }
+
+console.log(solution(12,25))

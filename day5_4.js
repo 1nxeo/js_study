@@ -33,24 +33,56 @@ function solution(s){
     let answer = "";
     let primeNum = [];
     let notPrime = [];
-    s.split(" ")
-
-    for(i=0;i<s.length;i++){
-        for (k=2;k<s[i];k++){
+    let sArr = s.split(" ")
+    console.log(sArr)
+    for(i=0;i<sArr.length;i++){
+        for (k=2;k<sArr[i];k++){
             if(s[i]%k==0){
-                notPrime.push(s[i]) 
+                notPrime.push(sArr[i]) 
             }else{
-                primeNum.push(s[i])
+                primeNum.push(sArr[i])
             }
         }
     }
     let a = Math.max(...primeNum)
     let b = Math.min(...notPrime)
-    answer = String(a) + String(b)
-    console.log(notPrime)
+    answer = String(a)+" "+String(b)
+    console.log(primeNum)
     return answer
 }
 
 let s="15 3 10 9 7 8";
 
 console.log(solution(s)) // "8 7"
+
+
+
+function solution(s){
+	let answer="";
+  let item = s.split(" ")
+  let max = [];
+  let min = [];
+
+  item.forEach(elem => {
+    if(primeChk(elem)){
+      max.push(Number(elem))
+    }else{
+      min.push(Number(elem))
+    }
+  });
+  answer = Math.min(...min)+" "+Math.max(...max)
+	return answer;
+}
+
+function primeChk(num){
+  for(let i = 2 ; i <= num ** 0.5 ; i++){
+    if(num % i == 0){
+      return false;
+    }
+  }
+  return true;
+}
+
+let s="97 75 88 99 95 92 73";
+
+console.log(solution(s))
